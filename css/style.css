@@ -1,0 +1,12 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url(../img/vecteezy_abstract-background-with-gradient-blue-bubble_.jpg);
+}
+
+main {
+  flex-grow: 1;
+}
+
+
