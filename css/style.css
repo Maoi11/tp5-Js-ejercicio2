@@ -1,12 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&family=MuseoModerno:wght@300&display=swap');
+
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url(../img/vecteezy_abstract-background-with-gradient-blue-bubble_.jpg);
-}
+  background: rgb(186,0,145);
+background: radial-gradient(circle, rgba(186,0,145,1) 16%, rgba(9,43,121,0.8155637254901961) 60%, rgba(0,255,188,1) 100%);
+ }
 
 main {
   flex-grow: 1;
+  font-family: 'Londrina Solid', cursive;
+}
+
+#tituloPag {
+  font-family: 'Londrina Solid', cursive;
+}
+
+
+footer {
+  font-family: 'Londrina Solid', cursive;
 }
 
 
