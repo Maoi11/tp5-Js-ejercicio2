@@ -9,7 +9,7 @@
 ## Cómo usar este repo: 💻 
 
 
-Si querés probar este repo, descargá el codigo y ejecutalo en tu navegador, o probá el demo haciendo click aquí: [DEMO](generacionestp5.netlify.app) 
+Si querés probar este repo, descargá el codigo y ejecutalo en tu navegador, o probá el demo haciendo click aquí: [DEMO](https://generacionestp5.netlify.app) 
 
 ## Tecnologías 🛠️
 
