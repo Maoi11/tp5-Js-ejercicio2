@@ -1,210 +1,214 @@
+let personaGenerada, nombre, edad, dni, sexo, peso, altura, anioNacimiento;
+const alertResultados = document.getElementById("alertResultados");
+console.log(alertResultados);
+const divVerPersona = document.getElementById("divVerPersona");
+const divVerGeneracion = document.getElementById("divVerGeneracion");
+const divMayorEdad = document.getElementById("divMayorEdad");
 
-//var globales
-
-let personaGenerada;
-
-// 
-const formulario = document.getElementById('formulario');
-console.log(formulario);
-formulario.addEventListener('submit', generarPersona);
-
-const alert = document.getElementById('alertResultados');
-
-const mostrarGeneracion = document.getElementById('btnMostrarGeneracion');
-console.log(mostrarGeneracion);
-//mostrarGeneracion.addEventListener('click', mostrarGeneracion);
-
-const verPersona = document.getElementById('btnVerPersona');
-console.log(verPersona);
-//verPersona.addEventListener('click', mostrarDatos);
-
-const esMayor = document.getElementById('btnEsMayor');
-console.log(esMayor);
-//esMayor.addEventListener('click', esMayorDeEdad );
-
+//
 
 class Persona {
-    #nombre;
-    #edad;
-    #dni;
-    #sexo;
-    #peso;
-    #altura;
-    #nacimiento;
-    #generacion;
-    #cualidad;
-    constructor(nombre, edad, dni, sexo, peso, altura, nacimiento) {
-      this.#nombre = nombre;
-      this.#edad = edad;
-      this.#dni = dni;
-      this.#altura = altura;
-      this.#sexo = sexo;
-      this.#peso = peso;
-      this.#nacimiento = nacimiento;
-    }
-    // getters y setters
-    get nombre() {
-      return this.#nombre;
-    }
-    set nombre(nuevoNombre) {
-      if (nuevoNombre.lenght > 0) {
-        this.#nombre = nuevoNombre;
-      }
-    }
-  
-    get edad() {
-      return this.#edad;
-    }
-    set edad(nuevaEdad) {
-      if (nuevaEdad > 0) {
-        this.#edad = nuevaEdad;
-      }
-    }
-  
-    get dni() {
-      return this.#dni;
-    }
-    set dni(nuevoDni) {
-      if (nuevoDni > 0 && nuevoDni <= 99999999) {
-        this.#dni = nuevoDni;
-      }
-    }
-  
-    get sexo() {
-      return this.#sexo;
-    }
-    set sexo(nuevoSexo) {
-      if (
-        nuevoSexo === "F" ||
-        nuevoSexo === "M" ||
-        nuevoSexo === "f" ||
-        nuevoSexo === "m"
-      ) {
-        this.#sexo = nuevoSexo;
-      }
-    }
-  
-    get peso() {
-      return this.#peso;
-    }
-    set peso(nuevoPeso) {
-      if (nuevoPeso > 0) {
-        this.#peso = nuevoPeso;
-      }
-    }
-  
-    get altura() {
-      return this.#altura;
-    }
-    set altura(nuevaAltura) {
-      if (nuevaAltura > 0) {
-        this.#altura = nuevoaAltura;
-      }
-    }
-  
-    get nacimiento() {
-      return this.#nacimiento;
-    }
-    set nacimiento(nuevoNacimiento) {
-      if (nuevoNacimiento > 0 && nuevoNacimiento <= 2023) {
-        this.#nacimiento = Nacimiento;
-      }
-    }
-  
-    get generacion() {
-      return this.#generacion;
-    }
-    set generacion(nuevaGeneracion) {
-      this.#generacion = nuevaGeneracion;
-    }
-  
-    get cualidad() {
-      return this.#cualidad;
-    }
-  
-    set cualidad(nuevaCualidad) {
-      this.#cualidad = nuevaCualidad;
-    }
-  
-    // MÉTODOS
-    mostrarGeneracion() {
-      console.log('boton mostrar gen');
-      let anioNac = this.nacimiento;
-      if (anioNac >= 1930 && anioNac <= 1948) {
-        this.generacion = "Silent Generation";
-        this.cualidad = "austeridad";
-        document.write(
-          `<p>${this.nombre} es de la generación '${this.generacion}', y su cualidad principal es la ${this.cualidad}.</p>`
-        );
-      } else if (anioNac >= 1949 && anioNac <= 1968) {
-        this.generacion = "Baby Boom";
-        this.cualidad = "ambición";
-        document.write(
-          `<p>${this.nombre} es de la generación '${this.generacion}', y su cualidad principal es la ${this.cualidad}.</p>`
-        );
-      } else if (anioNac >= 1969 && anioNac <= 1980) {
-        this.generacion = "Generación X";
-        this.cualidad = "obsesión por el éxito";
-        document.write(
-          `<p>${this.nombre} es de la generación '${this.generacion}', y su cualidad principal es la ${this.cualidad}.</p>`
-        );
-      }
-  else if (anioNac >= 1981 && anioNac <= 1993) {
-      this.generacion = "Generación Y (Millennial)";
-      this.cualidad = "frustración";
-      document.write(
-        `<p>${this.nombre} es de la generación '${this.generacion}', y su cualidad principal es la ${this.cualidad}.</p>`
-      );
-    }
-    else if (anioNac >= 1994 && anioNac <= 2010) {
-      this.generacion = "Generación Z";
-      this.cualidad = "irreverencia";
-      document.write(
-        `<p>${this.nombre} es de la generación '${this.generacion}', y su cualidad principal es la ${this.cualidad}.</p>`
-      );
-    }
-    }
-  
-    esMayorDeEdad () {
-      console.log('boton mayor edad');
-      if (this.edad >= 18 ) {
-  document.write(`<p>${this.nombre} es mayor de edad.</p>`);
-      } else {
-          document.write(`<p>${this.nombre} es menor de edad.</p>`);
-              }
-    }
-  
-
-  
-  mostrarDatos() {
-    console.log('boton mostrar datos');
-      document.write(`<ul>
-      <li>Nombre: ${this.nombre}</li>
-      <li>Edad: ${this.edad}</li>
-      <li>DNI: ${this.dni}</li>
-      <li>Sexo: ${this.sexo}</li>
-      <li>Peso: ${this.peso}</li>
-      <li>Talla: ${this.altura}</li>
-      <li>Nacimiento: ${this.nacimiento}</li>
-      <li>Generación: ${this.generacion}</li>
-      <li>Cualidad de su generación: ${this.cualidad}</li>
-      
-      </ul>`);
+  #nombre;
+  #edad;
+  #dni;
+  #sexo;
+  #peso;
+  #altura;
+  #anioNacimiento;
+  #generacion;
+  #cualidad;
+  constructor(nombre, edad, dni, sexo, peso, altura, anioNacimiento) {
+    this.#nombre = nombre;
+    this.#edad = edad;
+    this.#dni = dni;
+    this.#altura = altura;
+    this.#sexo = sexo;
+    this.#peso = peso;
+    this.#anioNacimiento = anioNacimiento;
   }
-    
+  // getters y setters
+  get nombre() {
+    return this.#nombre;
+  }
+  set nombre(nuevoNombre) {
+    if (nuevoNombre.lenght > 0) {
+      this.#nombre = nuevoNombre;
+    }
   }
 
-  function generarPersona(e) {
-    e.preventDefault();
-    const nombre = document.getElementById('nombre');
-    const edad = document.getElementById('edad');
-    const dni = document.getElementById('dni');
-    const sexo = document.getElementById ('sexo');
-    const peso = document.getElementById ('peso');
-    const altura = document.getElementById('altura');
-    const anioNacimiento = document.getElementById('anioNacimiento');
-  personaGenerada = new Persona(nombre.value, edad.value, dni.value, sexo.value, peso.value, altura.value, anioNacimiento.value);
-
-  
+  get edad() {
+    return this.#edad;
+  }
+  set edad(nuevaEdad) {
+    if (nuevaEdad > 0) {
+      this.#edad = nuevaEdad;
+    }
   }
 
+  get dni() {
+    return this.#dni;
+  }
+  set dni(nuevoDni) {
+    if (nuevoDni > 0 && nuevoDni <= 99999999) {
+      this.#dni = nuevoDni;
+    }
+  }
+
+  get sexo() {
+    return this.#sexo;
+  }
+  set sexo(nuevoSexo) {
+    if (
+      nuevoSexo === "F" ||
+      nuevoSexo === "M" ||
+      nuevoSexo === "f" ||
+      nuevoSexo === "m"
+    ) {
+      this.#sexo = nuevoSexo;
+    }
+  }
+
+  get peso() {
+    return this.#peso;
+  }
+  set peso(nuevoPeso) {
+    if (nuevoPeso > 0) {
+      this.#peso = nuevoPeso;
+    }
+  }
+
+  get altura() {
+    return this.#altura;
+  }
+  set altura(nuevaAltura) {
+    if (nuevaAltura > 0) {
+      this.#altura = nuevoaAltura;
+    }
+  }
+
+  get anioNacimiento() {
+    return this.#anioNacimiento;
+  }
+  set anioNacimiento(nuevoAnioNacimiento) {
+    if (nuevoAnioNacimiento > 0 && nuevoAnioNacimiento <= 2023) {
+      this.#anioNacimiento = nuevoAnioNacimiento;
+    }
+  }
+
+  get generacion() {
+    return this.#generacion;
+  }
+  set generacion(nuevaGeneracion) {
+    this.#generacion = nuevaGeneracion;
+  }
+
+  get cualidad() {
+    return this.#cualidad;
+  }
+
+  set cualidad(nuevaCualidad) {
+    this.#cualidad = nuevaCualidad;
+  }
+}
+
+const formulario = document.getElementById("formulario");
+console.log(formulario);
+formulario.addEventListener("submit", generarPersona);
+//const btnForm = document.getElementById('btnForm');
+function generarPersona(e) {
+  e.preventDefault();
+  nombre = document.getElementById("nombre");
+  edad = document.getElementById("edad");
+  dni = document.getElementById("dni");
+  sexo = document.getElementById("sexo");
+  peso = document.getElementById("peso");
+  altura = document.getElementById("altura");
+  anioNacimiento = document.getElementById("anioNacimiento");
+  personaGenerada = new Persona(
+    nombre.value,
+    edad.value,
+    dni.value,
+    sexo.value,
+    peso.value,
+    altura.value,
+    anioNacimiento.value
+  );
+  alertResultados.className = "my-3 container";
+}
+
+const btnMostrarGeneracion = document.getElementById("btnMostrarGeneracion");
+btnMostrarGeneracion.addEventListener("click", mostrarGeneracion);
+
+const btnVerPersona = document.getElementById("btnVerPersona");
+btnVerPersona.addEventListener("click", mostrarDatos);
+
+const btnEsMayor = document.getElementById("btnEsMayor");
+btnEsMayor.addEventListener("click", esMayorDeEdad);
+
+function mostrarGeneracion() {
+  console.log("boton mostrar gen");
+  divVerGeneracion.className = "d-3";
+  if (
+    personaGenerada.anioNacimiento >= 1930 &&
+    personaGenerada.anioNacimiento <= 1948
+  ) {
+    personaGenerada.generacion = "Silent Generation";
+    personaGenerada.cualidad = "austeridad";
+    divVerGeneracion.innerText = `<h3>Generación:</h3>
+      <p>${personaGenerada.nombre} es de la generación '${personaGenerada.generacion}', y su cualidad principal es la ${personaGenerada.cualidad}.</p>`;
+  } else if (
+    personaGenerada.anioNacimiento >= 1949 &&
+    personaGenerada.anioNacimiento <= 1968
+  ) {
+    personaGenerada.generacion = "Baby Boom";
+    personaGenerada.cualidad = "ambición";
+    divVerGeneracion.innerHTML = `<h3>Generación:</h3><p>${personaGenerada.nombre} es de la generación '${personaGenerada.generacion}', y su cualidad principal es la ${personaGenerada.cualidad}.</p>`;
+  } else if (
+    personaGenerada.anioNacimiento >= 1969 &&
+    personaGenerada.anioNacimiento <= 1980
+  ) {
+    personaGenerada.generacion = "Generación X";
+    personaGenerada.cualidad = "obsesión por el éxito";
+    divVerGeneracion.innerHTML = `<h3>Generación:</h3><p>${personaGenerada.nombre} es de la generación '${personaGenerada.generacion}', y su cualidad principal es la ${personaGenerada.cualidad}.</p>`;
+  } else if (
+    personaGenerada.anioNacimiento >= 1981 &&
+    personaGenerada.anioNacimiento <= 1993
+  ) {
+    personaGenerada.generacion = "Generación Y (Millennial)";
+    personaGenerada.cualidad = "frustración";
+    divVerGeneracion.innerHTML = `<h3>Generación:</h3><p>${personaGenerada.nombre} es de la generación '${personaGenerada.generacion}', y su cualidad principal es la ${personaGenerada.cualidad}.</p>`;
+  } else if (
+    personaGenerada.anioNacimiento >= 1994 &&
+    personaGenerada.anioNacimiento <= 2010
+  ) {
+    personaGenerada.generacion = "Generación Z";
+    personaGenerada.cualidad = "irreverencia";
+    divVerGeneracion.innerHTML = `<h3>Generación:</h3><p>${personaGenerada.nombre} es de la generación '${personaGenerada.generacion}', y su cualidad principal es la ${personaGenerada.cualidad}.</p>`;
+  }
+}
+
+function esMayorDeEdad() {
+  console.log("boton mayor edad");
+  divMayorEdad.className = "d-3";
+  if (personaGenerada.edad >= 18) {
+    divMayorEdad.innerHTML = `<h3>¿Es Mayor de Edad?</h3><p>${personaGenerada.nombre} es mayor de edad.</p>`;
+  } else {
+    divMayorEdad.innerHTML = `
+    <h3>¿Es Mayor de Edad?</h3><p>${personaGenerada.nombre} es menor de edad.</p>`;
+  }
+}
+
+function mostrarDatos() {
+  console.log("boton mostrar datos");
+  divVerPersona.className = "d-3";
+  divVerPersona.innerHTML = `<h3>Persona generada:</h3>
+  <ul>
+  <li>Nombre: ${personaGenerada.nombre}</li>
+  <li>Edad: ${personaGenerada.edad}</li>
+  <li>DNI: ${personaGenerada.dni}</li>
+  <li>Sexo: ${personaGenerada.sexo}</li>
+  <li>Peso: ${personaGenerada.peso}</li>
+  <li>Talla: ${personaGenerada.altura}</li>
+  <li>Nacimiento: ${personaGenerada.anioNacimiento}</li>
+    </ul>`;
+}
