@@ -1,7 +1,26 @@
+
+//var globales
+
+let personaGenerada;
+
+// 
 const formulario = document.getElementById('formulario');
+console.log(formulario);
 formulario.addEventListener('submit', generarPersona);
 
 const alert = document.getElementById('alertResultados');
+
+const mostrarGeneracion = document.getElementById('btnMostrarGeneracion');
+console.log(mostrarGeneracion);
+//mostrarGeneracion.addEventListener('click', mostrarGeneracion);
+
+const verPersona = document.getElementById('btnVerPersona');
+console.log(verPersona);
+//verPersona.addEventListener('click', mostrarDatos);
+
+const esMayor = document.getElementById('btnEsMayor');
+console.log(esMayor);
+//esMayor.addEventListener('click', esMayorDeEdad );
 
 
 class Persona {
@@ -109,6 +128,7 @@ class Persona {
   
     // MÉTODOS
     mostrarGeneracion() {
+      console.log('boton mostrar gen');
       let anioNac = this.nacimiento;
       if (anioNac >= 1930 && anioNac <= 1948) {
         this.generacion = "Silent Generation";
@@ -146,6 +166,7 @@ class Persona {
     }
   
     esMayorDeEdad () {
+      console.log('boton mayor edad');
       if (this.edad >= 18 ) {
   document.write(`<p>${this.nombre} es mayor de edad.</p>`);
       } else {
@@ -153,12 +174,10 @@ class Persona {
               }
     }
   
-    generaDni() {
-      this.dni =(Math.floor(Math.random() * (99999999 - 10000000 + 10000000) + 10000000))
-      document.write(`<p>Su nuevo DNI es ${this.dni}.</p>`);
-  }
+
   
   mostrarDatos() {
+    console.log('boton mostrar datos');
       document.write(`<ul>
       <li>Nombre: ${this.nombre}</li>
       <li>Edad: ${this.edad}</li>
@@ -177,5 +196,15 @@ class Persona {
 
   function generarPersona(e) {
     e.preventDefault();
-    const nombre = document.getElementById('nombre')
+    const nombre = document.getElementById('nombre');
+    const edad = document.getElementById('edad');
+    const dni = document.getElementById('dni');
+    const sexo = document.getElementById ('sexo');
+    const peso = document.getElementById ('peso');
+    const altura = document.getElementById('altura');
+    const anioNacimiento = document.getElementById('anioNacimiento');
+  personaGenerada = new Persona(nombre.value, edad.value, dni.value, sexo.value, peso.value, altura.value, anioNacimiento.value);
+
+  
   }
+
