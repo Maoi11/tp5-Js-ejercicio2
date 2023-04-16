@@ -1,4 +1,4 @@
-# Trabajo Práctico N°5: *DOM Y BOM*
+# Trabajo Práctico N°5: *DOM Y BOM: Ejercicio 2*
 
 
 ## Descripción 👓
